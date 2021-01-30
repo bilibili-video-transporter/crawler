@@ -1,0 +1,9 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "watch": ["src/"],
+  "ignore": ["test/*.spec.ts"],
+  "delay": "500",
+  "exec": "ts-node ./src/index.ts",
+  "ext": "ts js yml json"
+}
