@@ -3,18 +3,11 @@ import { weiboRecommendUrl, userAgent, cookie, sxtfToken } from "./constants";
 import { Crawler, WeiboItem, WeiboResponse } from "./interfaces/crawler";
 
 class WeiboRecommondCrawler implements Crawler<WeiboItem> {
+  next_cursor: number | null;
   cookie: string;
   sxtfToken: string;
-  n: number;
-  next_cursor: number | null;
 
-  constructor(
-    n: number,
-    next_cursor: number | null,
-    cookie: string,
-    sxtfToken: string
-  ) {
-    this.n = n;
+  constructor(next_cursor: number | null, cookie: string, sxtfToken: string) {
     this.next_cursor = next_cursor;
     this.cookie = cookie;
     this.sxtfToken = sxtfToken;
@@ -26,11 +19,11 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
       let list: Array<WeiboItem> = [];
       superAgent
         .post(url)
+        .field("data", formData)
         .accept("application/json")
         .set("origin", "https://weibo.com")
         .set("referer", "https://weibo.com/tv/home")
         .set("page-referer", "/tv/home")
-        .field("data", formData)
         .set("user-agent", userAgent)
         .set("cookie", this.cookie)
         .set("x-xsrf-token", this.sxtfToken)
@@ -53,7 +46,6 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
             );
           }
           this.next_cursor = Component_Home_Recommend?.next_cursor;
-          this.n += 1;
           list = Component_Home_Recommend?.list || [];
           console.log(`ok :)`);
           resolve(list);
@@ -65,10 +57,10 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
   }
 
   async next() {
-    const { n, next_cursor } = this;
+    const { next_cursor } = this;
     const Component_Home_Recommend = next_cursor ? { next_cursor } : {};
-    const formData = JSON.stringify({ Component_Home_Recommend, n, m: "home" });
-    const url = `${weiboRecommendUrl}&n=${n}`;
+    const formData = JSON.stringify({ Component_Home_Recommend });
+    const url = `${weiboRecommendUrl}`;
     return await this.get(url, formData);
   }
 }
@@ -76,7 +68,7 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
 export const bootStrap = async () => {
   let count = 2; // 爬取次数
   let list: Array<WeiboItem> = [];
-  const weiboCrawler = new WeiboRecommondCrawler(1, null, cookie, sxtfToken);
+  const weiboCrawler = new WeiboRecommondCrawler(null, cookie, sxtfToken);
   while (count) {
     const temp = await weiboCrawler.next();
     list.push(...temp);

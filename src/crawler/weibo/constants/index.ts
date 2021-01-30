@@ -1,5 +1,5 @@
 export const weiboRecommendUrl =
-  "https://weibo.com/tv/api/component?page=/tv/home&m=home";
+  "https://weibo.com/tv/api/component?page=/tv/home";
 
 export const userAgent =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36";
