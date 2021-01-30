@@ -30,5 +30,5 @@ export interface WeiboResponse {
 }
 
 export interface Crawler<T> {
-  get(url: string): Promise<Array<T>>;
+  get(url: string, formData: string): Promise<Array<T>>;
 }
