@@ -1,7 +1,7 @@
 import superAgent from "superagent";
 import { weiboRecommendUrl, cookie, sxtfToken } from "./constants";
 import { Crawler, WeiboItem, WeiboResponse } from "./interfaces/crawler";
-import { useRandomAgent } from "./utils";
+import { useRandomAgent, saveWeiboList2LocalFile } from "./utils";
 
 class WeiboRecommondCrawler implements Crawler<WeiboItem> {
   next_cursor: number | null;
@@ -67,6 +67,7 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
 }
 
 export const bootStrap = async () => {
+  // 1. get data
   let count = 2; // 爬取次数
   let list: Array<WeiboItem> = [];
   const weiboCrawler = new WeiboRecommondCrawler(null, cookie, sxtfToken);
@@ -76,5 +77,6 @@ export const bootStrap = async () => {
     count -= 1;
   }
   console.log(`get total ${list.length} `);
-  console.log(list?.[0]);
+  // 2. save to local file
+  await saveWeiboList2LocalFile(list);
 };
