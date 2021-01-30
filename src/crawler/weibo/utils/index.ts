@@ -10,8 +10,8 @@ export const saveWeiboList2LocalFile = (
   data: Array<any>,
   fileName: string = "weibo.json"
 ) => {
-  const filePath = path.resolve(__dirname, "/src/crawler/weibo", fileName);
-  fs.writeFile(filePath, JSON.stringify(data), "utf-8")
+  const filePath = path.join(__dirname, fileName);
+  return fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8")
     .then(() => {
       console.log("save weibo json to local file finished :)");
     })

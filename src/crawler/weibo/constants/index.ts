@@ -2,9 +2,9 @@ export const weiboRecommendUrl =
   "https://weibo.com/tv/api/component?page=/tv/home";
 
 export const cookie =
-  "TC-V-WEIBO-G0=b09171a17b2b5a470c42e2f713edace0; SUB=_2AkMXSYhbf8NxqwJRmfsTym7kaot1ygDEieKhFXmAJRMxHRl-yT9kqm8AtRB6PMmmtFg8E6U3iCCw-mKZjkThnJE1bnlR; SUBP=0033WrSXqPxfM72-Ws9jqgMF55529P9D9WWSPm48RmdMPavEhjCcwkLK; YF-V-WEIBO-G0=35846f552801987f8c1e8f7cec0e2230; _s_tentry=-; Apache=5600578905656.171.1611990894570; SINAGLOBAL=5600578905656.171.1611990894570; ULV=1611990894700:1:1:1:5600578905656.171.1611990894570:; XSRF-TOKEN=TvjVPM_HMFTrAOWk8ykZAT52; login_sid_t=ed89fcb7b3b639143c9581d278f7bf6e; cross_origin_proto=SSL; wb_view_log=2560*14401";
+  "YF-V-WEIBO-G0=35846f552801987f8c1e8f7cec0e2230; login_sid_t=c64d75d00630e14db5e019a63c4b4e8e; cross_origin_proto=SSL; _s_tentry=passport.weibo.com; Apache=9314168003183.822.1611995781002; SINAGLOBAL=9314168003183.822.1611995781002; ULV=1611995781011:1:1:1:9314168003183.822.1611995781002:; WBtopGlobal_register_version=2021013016; wb_view_log_5362898089=1792*11202; XSRF-TOKEN=1Sm6sYPt0e70HvQoa6NwoyyK; WBPSESS=NHDq0lzsaBJqFsTL9scgp0h9WibkEXLf98Mat9HQFljctvIeJdCh9sk7iQUww2OXxF8mn9CQiIHcKvFSDRht-2IqC_mfIX24v5H-1-3Dz6gaKybWEyycuqdeFrR_qHhM; UOR=,,login.sina.com.cn; wb_view_log=1792*11202; appkey=; SUB=_2A25NEWyCDeRhGeNN7VAZ-SbMwzWIHXVuZ9lKrDV8PUNbmtANLVr9kW9NSbeAr3_C9TAqJF6u9fZHkx89nWNJ0T4e; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9Wh4PeMoRFY57_Vr1fhV2--N5JpX5KzhUgL.Fo-0SozR1Kn71h.2dJLoIEBLxK-L1K5L1heLxKMLBKzL1KMLxK.L1-BLBKzLxK-L1K-L122t; ALF=1643532370; SSOLoginState=1611996370; wvr=6; webim_unReadCount=%7B%22time%22%3A1611996528446%2C%22dm_pub_total%22%3A0%2C%22chat_group_client%22%3A0%2C%22chat_group_notice%22%3A0%2C%22allcountNum%22%3A0%2C%22msgbox%22%3A0%7D";
 
-export const sxtfToken = "TvjVPM_HMFTrAOWk8ykZAT52";
+export const sxtfToken = "1Sm6sYPt0e70HvQoa6NwoyyK";
 
 export const userAgents = [
   "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.12) Gecko/20070731 Ubuntu/dapper-security Firefox/1.5.0.12",
