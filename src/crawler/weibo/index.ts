@@ -1,6 +1,7 @@
 import superAgent from "superagent";
-import { weiboRecommendUrl, userAgent, cookie, sxtfToken } from "./constants";
+import { weiboRecommendUrl, cookie, sxtfToken } from "./constants";
 import { Crawler, WeiboItem, WeiboResponse } from "./interfaces/crawler";
+import { useRandomAgent } from "./utils";
 
 class WeiboRecommondCrawler implements Crawler<WeiboItem> {
   next_cursor: number | null;
@@ -24,7 +25,7 @@ class WeiboRecommondCrawler implements Crawler<WeiboItem> {
         .set("origin", "https://weibo.com")
         .set("referer", "https://weibo.com/tv/home")
         .set("page-referer", "/tv/home")
-        .set("user-agent", userAgent)
+        .set("user-agent", useRandomAgent())
         .set("cookie", this.cookie)
         .set("x-xsrf-token", this.sxtfToken)
         .then((res) => {
